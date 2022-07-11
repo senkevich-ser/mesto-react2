@@ -1,12 +1,10 @@
-import React from "react";
-import logo from "../../images/logo_russia.svg";
+import React from 'react';
+import Logo from '../../images/logo_russia.svg'
 
-function Header() {
-  return (
-    <header className="header wrapper">
-      <img src={logo} alt="логотип" className="header__logo" />
-    </header>
-  );
+export default function Header() {
+   return (
+      <header className="header wrapper">
+         <img src={Logo} alt="логотип" className="header__logo" />
+      </header>
+   )
 }
-
-export default Header;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Сенкевич Сергей" />
+  <meta name="description" content="проектная работа №4
+  Сергей Сенкевич на Яндекс Практикуме" />
+  <title>Жак-Ив Кусто</title>
+</head>
+
+<body class="root">
+
+
+  <div class="popup profile-popup">
+    <div class="popup__container">
+      <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form name="formExplorers" class="popup__inputs" novalidate>
+        <input id="initial-input" name="name" type="text" placeholder="Имя Фамилия " value=""
+          class="input popup__input-text" maxlength="40" minlength="2" required />
+        <span class="initial-input-error popup__error"></span>
+        <input id="rank-input" name="about" type="text" placeholder="Род деятельности " value=""
+          class="input popup__input-text" maxlength="200" minlength="2" required />
+        <span class="rank-input-error popup__error"></span>
+        <button aria-label="Сохранить изменения в форме" type="submit" class="popup__submit-btn">
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class=" popup-card popup">
+    <div class="popup-card__container popup__container">
+      <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
+      <h2 class="popup-card__title popup__title">Новое место</h2>
+      <form name="formCards" class="popup-card__inputs popup__inputs" novalidate>
+        <input id="place-input" name="placeName" type="text" placeholder="Название " value=""
+          class="input popup-card__input-text popup__input-text" minlength="1" maxlength="30" required />
+        <span class="place-input-error popup__error"></span>
+        <input id="link-input" name="linkName" type="url" placeholder="Ссылка на картинку " value=""
+          class="input popup-card__input-text popup__input-text" required />
+        <span class="link-input-error popup__error"></span>
+        <button aria-label="Сохранить изменения в форме" type="submit" class="popup-card__submit-btn popup__submit-btn">
+          Создать
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class=" popup-avatar popup">
+    <div class="popup__container">
+      <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="formAvatar" class="popup__inputs" novalidate>
+        <input id="avatar-input" name="avatar" type="url" placeholder="Ссылка на фото " value=""
+          class="input  popup__input-text" required />
+        <span class="avatar-input-error popup__error"></span>
+        <button aria-label="Сохранить новый аватар" type="submit" class="popup__submit-btn">
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="popup-deleteCard popup">
+    <div class="popup__container">
+      <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form name="deleteCard" class="popup__inputs popup__deleteCard" novalidate>
+        <button aria-label="Сохранить новый аватар" type="submit" class="popup__submit-btn">
+          Да
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class=" foto-open popup">
+    <div class=" foto-open__container">
+      <img class="foto-open__image" src="#" alt="Foto" />
+      <button aria-label="Закрыть фото" type="button" class=" popup__close-cross opacity"></button>
+      <h2 class="foto-open__name">Место</h2>
+    </div>
+  </div>
+</body>
+
+</html>
