@@ -6,7 +6,7 @@ export default function Main(props) {
       <main className="content">
          <section className="lead">
             <div className="lead__titles">
-               <button aria-label="Редактировать аватар" type="button" className="lead__avatarButton opacity"></button>
+               <button aria-label="Редактировать аватар" type="button" className="lead__avatarButton opacity" onClick={props.isOpen}></button>
                <img className="lead__image" src={props.userInfo.avatar} alt="Фото пользователя" />
                <div className="lead__wrapper-titles">
                   <div className="lead__wrapper-title">
@@ -20,7 +20,7 @@ export default function Main(props) {
          </section>
          <section className="foto-grid" aria-label="Фото красивых мест">
             {props.cards.map((card) => (
-               <Card key={card._id} item={card} />
+               <Card key={card._id} item={card} onCardClick={props.cardClick}/>
             ))}
          </section>
       </main>
