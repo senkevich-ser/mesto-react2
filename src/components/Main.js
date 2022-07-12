@@ -20,7 +20,7 @@ export default function Main(props) {
          </section>
          <section className="foto-grid" aria-label="Фото красивых мест">
             {props.cards.map((card) => (
-               <Card key={card._id} item={card} onCardClick={props.cardClick}/>
+               <Card key={card._id} item={card} onCardClick={props.cardClick} userInfo={props.userInfo} cardDeleteClick={props.cardDeleteClick} />
             ))}
          </section>
       </main>

@@ -4,14 +4,17 @@ import Main from './Main';
 import Footer from './landing/Footer';
 import api from '../utils/Api';
 import Popup from './Popup';
-import EditeAvatarPopup from './EditeAvatarPopup';
+import EditAvatarPopup from './EditAvatarPopup';
 import PopupWithImage from './PopupWithImage';
+import EditProfilePopup from './EditProfilePopup';
 
 export default function App() {
    const [userInfo, setUserInfo] = React.useState({});
    const [cards, setCards] = React.useState([]);
-   const [isPopupEditeAvatar, setIsPopupEditeAvatar] = React.useState(false);
+   const [isPopupEditAvatar, setIsPopupEditAvatar] = React.useState(false);
    const [isPopupWithImage, setIsPopupWihImage] = React.useState(false);
+   const [isPopupCardDelete, setIsPopupCardDelete] = React.useState(false);
+   const [isPopupEditProfile, setIsPopupEditProfile] = React.useState(false);
    const [clickCard, setClickCard] = React.useState({});
 
    React.useEffect(() => {
@@ -23,18 +26,20 @@ export default function App() {
    }, [])
 
    const handleEditAvatarClick = () => {
-      setIsPopupEditeAvatar(true);
+      setIsPopupEditAvatar(true);
    }
    const handleEditProfileClick = () => {
-
+      setIsPopupEditProfile(true)
    }
    const handleAddPlaceClick = () => {
 
    }
 
+
    const handleClosePopup = () => {
-      setIsPopupEditeAvatar(false);
+      setIsPopupEditAvatar(false);
       setIsPopupWihImage(false);
+      setIsPopupCardDelete(false);
    }
 
    const handleCardClick = (card) => {
@@ -42,24 +47,36 @@ export default function App() {
       setIsPopupWihImage(true)
    }
 
+   const handleCardDelete = (card) => {
+      setIsPopupCardDelete(true);
+      console.log(card)
+   }
+
 
    return (
       <>
          <Header />
-         <Main userInfo={userInfo} cards={cards} isOpen={handleEditAvatarClick} cardClick={handleCardClick} />
+         <Main userInfo={userInfo} cards={cards} isOpen={handleEditAvatarClick} cardClick={handleCardClick} cardDeleteClick={handleCardDelete} />
          <Footer />
-         {isPopupEditeAvatar && <Popup
+         {isPopupEditAvatar && <Popup
             isClose={handleClosePopup}
-            openedPopup={isPopupEditeAvatar}
+            openedPopup={isPopupEditAvatar}
             name={'editAvatar'}
             btnTitle={'Сохранить'}
             title={'Обновить аватар'}>
-            <EditeAvatarPopup />
+            <EditAvatarPopup />
          </Popup>}
-         {isPopupWithImage && <PopupWithImage 
-         clickCard={clickCard} 
-         isOpen={isPopupWithImage} 
-         onClose={handleClosePopup}/>}
+         {isPopupWithImage && <PopupWithImage
+            clickCard={clickCard}
+            isOpen={isPopupWithImage}
+            onClose={handleClosePopup} />}
+         {isPopupCardDelete && <Popup
+            openedPopup={isPopupCardDelete}
+            isClose={handleClosePopup}
+            name={'deleteCardPopup'}
+            btnTitle={'Да'}
+            title={'Вы увeрены?'}
+         />}
       </>
    )
 }
