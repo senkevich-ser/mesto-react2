@@ -10,7 +10,7 @@ export default function Card(props) {
       ))) {
          setIsLiked(true)
       }
-   }, [])
+   }, [props.userInfo._id,props.item.likes])
 
 
    function handleCardClick() {

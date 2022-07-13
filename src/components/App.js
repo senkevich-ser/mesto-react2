@@ -7,6 +7,7 @@ import Popup from './Popup';
 import EditAvatarPopup from './EditAvatarPopup';
 import PopupWithImage from './PopupWithImage';
 import EditProfilePopup from './EditProfilePopup';
+import AddCardPopup from './AddCardPopup';
 
 export default function App() {
    const [userInfo, setUserInfo] = React.useState({});
@@ -15,6 +16,7 @@ export default function App() {
    const [isPopupWithImage, setIsPopupWihImage] = React.useState(false);
    const [isPopupCardDelete, setIsPopupCardDelete] = React.useState(false);
    const [isPopupEditProfile, setIsPopupEditProfile] = React.useState(false);
+   const [isPopupAddCard, setIsPopupAddCard] = React.useState(false);
    const [clickCard, setClickCard] = React.useState({});
 
    React.useEffect(() => {
@@ -32,12 +34,14 @@ export default function App() {
       setIsPopupEditProfile(true)
    }
    const handleAddPlaceClick = () => {
-
+      setIsPopupAddCard(true);
    }
 
 
    const handleClosePopup = () => {
       setIsPopupEditAvatar(false);
+      setIsPopupEditProfile(false)
+      setIsPopupAddCard(false);
       setIsPopupWihImage(false);
       setIsPopupCardDelete(false);
    }
@@ -56,7 +60,11 @@ export default function App() {
    return (
       <>
          <Header />
-         <Main userInfo={userInfo} cards={cards} isOpen={handleEditAvatarClick} cardClick={handleCardClick} cardDeleteClick={handleCardDelete} />
+         <Main userInfo={userInfo}
+            cards={cards}
+            isOpen={{ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClick }}
+            cardClick={handleCardClick}
+            cardDeleteClick={handleCardDelete} />
          <Footer />
          {isPopupEditAvatar && <Popup
             isClose={handleClosePopup}
@@ -77,6 +85,12 @@ export default function App() {
             btnTitle={'Да'}
             title={'Вы увeрены?'}
          />}
+         {isPopupEditProfile && <EditProfilePopup
+            isClose={handleClosePopup}
+            openedPopup={isPopupEditProfile} />}
+         {isPopupAddCard && <AddCardPopup
+            isClose={handleClosePopup}
+            openedPopup={isPopupAddCard} />}
       </>
    )
 }

@@ -6,17 +6,17 @@ export default function Main(props) {
       <main className="content">
          <section className="lead">
             <div className="lead__titles">
-               <button aria-label="Редактировать аватар" type="button" className="lead__avatarButton opacity" onClick={props.isOpen}></button>
+               <button aria-label="Редактировать аватар" type="button" className="lead__avatarButton opacity" onClick={props.isOpen.handleEditAvatarClick}></button>
                <img className="lead__image" src={props.userInfo.avatar} alt="Фото пользователя" />
                <div className="lead__wrapper-titles">
                   <div className="lead__wrapper-title">
                      <h1 className="lead__title title-cutter">{props.userInfo.name}</h1>
-                     <button aria-label="Внести изменения в форму" type="button" className="lead__pencil opacity"></button>
+                     <button aria-label="Внести изменения в форму" type="button" className="lead__pencil opacity" onClick={props.isOpen.handleEditProfileClick}></button>
                   </div>
                   <p className="lead__subtitle title-cutter margin">{props.userInfo.about}</p>
                </div>
             </div>
-            <button aria-label="Добавить карточку" type="button" className="lead__button opacity"></button>
+            <button aria-label="Добавить карточку" type="button" className="lead__button opacity" onClick={props.isOpen.handleAddPlaceClick}></button>
          </section>
          <section className="foto-grid" aria-label="Фото красивых мест">
             {props.cards.map((card) => (
